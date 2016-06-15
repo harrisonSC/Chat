@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable="true">
+
+	<Resource 
+	 name="jdbc/ChatDB"
+	 auth="Container"
+	 type="javax.sql.DataSource"
+	 maxActive="100"
+	 maxIdle="30"
+	 maxWait="10000"
+	 username="postgres"
+	 password="postgres"
+	 driverClassName="org.postgresql.Driver"
+	 url="jdbc:postgresql://192.168.3.131:5432/NEW_CHAT"/>
+
+</Context>
