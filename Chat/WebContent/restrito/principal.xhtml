@@ -9,7 +9,13 @@
 
 <ui:composition template="/templates/interna.xhtml">
 	<ui:define name="titulo">
-	Cadastro de Monitor
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			Cadastros 
+		</sec:ifAnyGranted>
+		<sec:ifNotGranted roles="ROLE_ADMINISTRADOR">
+			Monitoramento 
+		</sec:ifNotGranted>		
+		
 	</ui:define>
 	<ui:define name="corpo">
 		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">

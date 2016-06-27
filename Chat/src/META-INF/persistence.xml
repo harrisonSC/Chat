@@ -6,7 +6,6 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<non-jta-data-source>java:comp/env/jdbc/ChatDB</non-jta-data-source>
 		<class>chat.entities.Usuario</class>
-		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 <!--  

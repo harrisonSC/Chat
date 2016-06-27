@@ -17,31 +17,24 @@ public class UsuarioRN {
 		return this.usuarioDAO.carregar(codigo);
 	}
 
-
 	public void salvar(Usuario usuario) {
 		Integer codigo = usuario.getCodigo();
-			if (codigo == null || codigo == 0) {
-				//Permissao permissao = new Permissao();
-				usuario.getPermissao().add("ROLE_USUARIO");
-				//permissao.setTipo("2");
-			//usuario.setPermissao(permissao);
+		if (codigo == null || codigo == 0) {
+			usuario.getPermissao().add("ROLE_USUARIO");
 			this.usuarioDAO.salvar(usuario);
 		} else {
-			//Permissao permissao = usuario.getPermissao();
-			
-			//usuario.setPermissao(permissao);
+			// usuario.getPermissao();
 			this.usuarioDAO.atualizar(usuario);
 		}
 	}
 
 	public void excluir(Usuario usuario) {
-		
+
 		this.usuarioDAO.excluir(usuario);
 	}
 
-	public List<Usuario> listar(){
+	public List<Usuario> listar() {
 		return this.usuarioDAO.listar();
 	}
-	
-	
+
 }
