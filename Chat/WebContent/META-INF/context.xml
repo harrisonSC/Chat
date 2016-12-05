@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context reloadable="true">
 
-	<Resource 
+<!-- 	<ResourceLink
 	 name="jdbc/ChatDB"
 	 auth="Container"
 	 type="javax.sql.DataSource"
@@ -11,6 +11,9 @@
 	 username="postgres"
 	 password="postgres"
 	 driverClassName="org.postgresql.Driver"
-	 url="jdbc:postgresql://192.168.3.131:5432/NEW_CHAT"/>
+	 url="jdbc:postgresql://192.168.3.121:5432/NEW_CHAT"/> -->
 
-</Context>
+ <ResourceLink name="jdbc/ChatDB"
+             global="jdbc/ChatDB"
+              type="javax.sql.DataSource" />
+</Context> 

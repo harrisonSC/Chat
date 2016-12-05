@@ -15,11 +15,12 @@
 				<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
 					<h:commandButton value="Monitores" action="/restrito/principal"/>
 					<h:commandButton value="URAS" action="/restrito/cadastroUras" />
-					<h:commandButton value="Temas Chat" action="/restrito/cadastroTemas" />
+					<h:commandButton value="Temas" action="/restrito/cadastroTemas" />
 					<h:commandButton value="Lista Negra" action="/restrito/cadastroListaNegra" />
 				</sec:ifAnyGranted>
 				<sec:ifAnyGranted roles="ROLE_USUARIO">	
-
+					<h:commandButton value="Monitores" action="/restrito/principal"/>
+					<h:commandButton value="Personalidade" action="/restrito/personalidade" />
 				</sec:ifAnyGranted>
 				</td>
 				<td align="left">

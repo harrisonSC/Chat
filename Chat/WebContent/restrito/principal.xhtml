@@ -34,21 +34,20 @@
 
 					<h:outputLabel value="Login:" for="login" />
 					<h:inputText id="login" label="Login"
-						value="#{usuarioBean.usuario.login}" size="4" maxlength="4"
+						value="#{usuarioBean.usuario.login}" size="10" maxlength="10"
 						required="true"
-						validatorMessage="Login deve ter no mínimo 4 e no máximo 4 caracters numericos.">
-						<f:validateRegex pattern="([0-9]){4,4}" />
-					</h:inputText>
+						>
+						</h:inputText>
 
 					<h:outputLabel value="Senha:" for="senha" />
 					<h:inputSecret id="senha" label="Senha"
-						value="#{usuarioBean.usuario.senha}" size="4" maxlength="4"
-						required="true" redisplay="true" validatorMessage="A senha deve ter no mínimo 4 e no máximo 4 caracters numericos.">
-						<f:validateRegex pattern="([0-9]){4,4}" />
+						value="#{usuarioBean.usuario.senha}" 
+						required="true" redisplay="true">
+						
 						</h:inputSecret>
 					<h:outputLabel value="Confirmar Senha:" for="confirmasenha" />
 					<h:inputSecret id="confirmasenha" label="Confirmar Senha"
-						value="#{usuarioBean.confirmaSenha}" size="4" maxlength="4"
+						value="#{usuarioBean.confirmaSenha}" 
 						required="true" />
 					<h:commandButton action="#{usuarioBean.salvar}" value="Salvar">
 						<f:ajax execute="@form" render=":ediccao :listagem" />
@@ -99,6 +98,10 @@
 				</p:dataTable>
 			</h:form>
 		</sec:ifAnyGranted>
+		<sec:ifAnyGranted roles="ROLE_USUARIO">
+		Ola Monitor : xpto
+		</sec:ifAnyGranted>
+		
 	</ui:define>
 </ui:composition>
 </html>

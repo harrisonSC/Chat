@@ -4,8 +4,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
                         http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
 	<http>
-
 		<intercept-url pattern="/restrito/**" access="ROLE_USUARIO" />
+		<intercept-url pattern="/admin/**" access="ROLE_ADMINISTRADOR" />
 		<form-login login-page="/publico/login.jsf"
 			always-use-default-target="true" default-target-url="/restrito/principal.jsf"
 			authentication-failure-url="/publico/login.jsf?login_error=1" />

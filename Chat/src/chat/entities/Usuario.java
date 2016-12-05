@@ -9,8 +9,8 @@ import javax.persistence.*;
  * The persistent class for the usuario database table.
  * 
  */
-@Entity(name = "usuario")
-@NamedQueries({ @NamedQuery(name = "Usuario.findAll_orderByName", query = "SELECT u FROM usuario u order by u.nome")
+@Entity(name = "Usuario")
+@NamedQueries({ @NamedQuery(name = "Usuario.findAll_orderByName", query = "SELECT u FROM Usuario u order by u.nome")
 
 // colocar outras querys
 
