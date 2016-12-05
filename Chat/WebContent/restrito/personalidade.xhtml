@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interna.xhtml">
+	<ui:define name="titulo">
+	Personalidade
+	</ui:define>
+	<ui:define name="corpo">
+	Entrar no Chat como Personalidade
+	
+				<h:form id="personalidade">
+				<p:messages style="color:red;margin:8px;" />
+				<h:panelGrid columns="2">
+					<h:outputLabel value="Telefone:" for="telefone" />
+					<h:inputText id="telefone" label="Telefone"
+						value="#{personalidadeBean.personalidade.msisdnPersonalidade}" size="11" required="true">
+						<f:validateLength minimum="11" />
+					</h:inputText>
+
+
+					<h:commandButton action="#{personalidadeBean.entrar}" value="Entrar">
+					</h:commandButton>
+				</h:panelGrid>
+			</h:form>
+	
+	
+	</ui:define>
+</ui:composition>
+</html>
