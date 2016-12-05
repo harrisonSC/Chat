@@ -30,7 +30,7 @@ public class PersonalidadeBean {
 			Dialout dialout = new Dialout();
 			List<String> variable = new ArrayList<String>();
 			
-			
+			 
 			variable.add( "CALLERID(DNID)=8486" );
     		variable.add("destinationNumber=".concat(this.personalidade.getMsisdnPersonalidade()));
 			
