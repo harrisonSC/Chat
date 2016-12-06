@@ -7,8 +7,8 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import br.com.supportcomm.dialout.util.Dialout;
 import chat.entities.Personalidade;
+import chat.util.Ligacao;
 
 @ManagedBean(name = "personalidadeBean")
 @RequestScoped
@@ -26,30 +26,18 @@ public class PersonalidadeBean {
 	public String entrar(){
 		
 		try {
-			List<Dialout> dialouts = new ArrayList<Dialout>();
-			Dialout dialout = new Dialout();
-			List<String> variable = new ArrayList<String>();
 			
-			 
-			variable.add( "CALLERID(DNID)=8486" );
-    		variable.add("destinationNumber=".concat(this.personalidade.getMsisdnPersonalidade()));
-			
-			dialout.setChannel("SIP/" + this.personalidade.getMsisdnPersonalidade());
-			dialout.setExten("8486");
-			dialout.setIpConnection("192.168.3.108");
-			dialout.setLoginAsterisk("manager");
-			dialout.setPassAsterisk("senha");
-			dialout.setMsisdnOriginator("8486");
-			dialout.setPriority(1);
-			dialout.setVariables(variable );
-			dialout.setContext("default");
-			dialout.run();
+			Ligacao ligacao = new Ligacao();
 			
 			
-			Thread threadDoPdf = new Thread(dialout);
-        	threadDoPdf.start();
-        	dialouts.add(dialout);
 			
+			
+			List<String> variables = new ArrayList<String>();
+			
+			variables.add("conferencia=entrar"); 
+			
+			
+			ligacao.chamar(this.personalidade.getMsisdnPersonalidade(), "8486", "192.168.3.108", 5038,"manager","senha",variables);
 			
 			
 		} catch (IOException e) {
