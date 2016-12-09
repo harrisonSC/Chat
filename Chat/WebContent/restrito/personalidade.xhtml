@@ -9,7 +9,7 @@
 
 <ui:composition template="/templates/interna.xhtml">
 	<ui:define name="titulo">
-	Personalidade
+	Entrar no Chat
 	</ui:define>
 	<ui:define name="corpo">
 	Entrar no Chat como Personalidade
@@ -25,6 +25,7 @@
 
 
 					<h:commandButton action="#{personalidadeBean.entrar}" value="Entrar">
+					<f:ajax execute="@form" render=":personalidade" />
 					</h:commandButton>
 				</h:panelGrid>
 			</h:form>

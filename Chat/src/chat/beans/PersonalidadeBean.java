@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 import chat.entities.Personalidade;
 import chat.util.Ligacao;
@@ -38,7 +40,10 @@ public class PersonalidadeBean {
 			
 			
 			ligacao.chamar(this.personalidade.getMsisdnPersonalidade(), "8486", "192.168.3.108", 5038,"manager","senha",variables);
-			
+			FacesContext contex = FacesContext.getCurrentInstance();
+			FacesMessage facemessage = new FacesMessage("Ligação sendo efetuada, aguarde alguns segundos!");
+			contex.addMessage(null, facemessage);
+			//FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove(personalidade);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
