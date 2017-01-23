@@ -25,7 +25,7 @@
 				<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
 				<h:inputHidden value="#{usuarioBean.destinoSalvar}" />
 
-				<h:panelGrid columns="2">
+				<h:panelGrid columns="4">
 					<h:outputLabel value="Nome:" for="nome" />
 					<h:inputText id="nome" label="Nome"
 						value="#{usuarioBean.usuario.nome}" size="30" required="true">
@@ -35,9 +35,8 @@
 					<h:outputLabel value="Login:" for="login" />
 					<h:inputText id="login" label="Login"
 						value="#{usuarioBean.usuario.login}" size="10" maxlength="10"
-						required="true"
-						>
-						</h:inputText>
+						required="true"	>
+					</h:inputText>
 
 					<h:outputLabel value="Senha:" for="senha" />
 					<h:inputSecret id="senha" label="Senha"
@@ -49,6 +48,20 @@
 					<h:inputSecret id="confirmasenha" label="Confirmar Senha"
 						value="#{usuarioBean.confirmaSenha}" 
 						required="true" />
+
+			<!-- 		Colocar os temas vinculados aos monitores		TO DO -->
+
+ 					<p:selectCheckboxMenu id="escolhatema"
+						value="#{usuarioBean.usuario.selectedTemas}" label="Vincular Tema"
+						filter="true" filterMatchMode="startsWith"
+						panelStyle="width:250px">
+						<f:selectItems value="#{temaChatBean.listarItens}" />
+					</p:selectCheckboxMenu>
+	
+			<!-- 				TO DO	2017  -->
+	
+		<h:outputLabel  />
+
 					<h:commandButton action="#{usuarioBean.salvar}" value="Salvar">
 						<f:ajax execute="@form" render=":ediccao :listagem" />
 					</h:commandButton>

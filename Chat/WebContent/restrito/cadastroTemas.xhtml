@@ -12,7 +12,74 @@
 	Cadastro Temas do Chat
 	</ui:define>
 	<ui:define name="corpo">
-Cadastro Temas do Chat
+		<h:form id="edicaoTema">
+			<p:messages style="color:red;margin:8px;" />
+			<h:inputHidden value="#{temaChatBean.temaChat.id}" />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome:" for="descricaoSala" />
+				<h:inputText id="descricaoSala" label="Nome"
+					value="#{temaChatBean.temaChat.descricaoSala}" size="20"
+					required="true">
+				</h:inputText>
+
+				<h:outputLabel value="Tamanho da Sala:" for="tamanhoSala" />
+				<h:inputText id="tamanhoSala" label="Tamanho da Sala"
+					value="#{temaChatBean.temaChat.tamanhoSala}" required="true"
+					size="5">
+				</h:inputText>
+
+				<h:outputLabel value="Qtd de Salas:" for="qtdSala" />
+				<h:inputText id="qtdSala" label="Qtd de Salas"
+					value="#{temaChatBean.temaChat.qtdSala}" required="true" size="5">
+				</h:inputText>
+
+				<h:commandButton action="#{temaChatBean.salvar}" value="Salvar">
+					<f:ajax execute="@form" render=":edicaoTema :listagemTema" />
+				</h:commandButton>
+			</h:panelGrid>
+		</h:form>
+
+		<br />
+		<h:form id="listagemTema">
+
+			<p:dataTable value="#{temaChatBean.lista}" var="tema" width="750px"
+				rows="7" paginator="true">
+				<f:facet name="header">Listagem de Temas</f:facet>
+				<f:facet name="footer"></f:facet>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{tema.descricaoSala}" />
+				</p:column>
+
+				<p:column headerText="Tamanho da Sala">
+					<h:outputText value="#{tema.tamanhoSala}" />
+				</p:column>
+
+				<p:column headerText="Qtd Sala">
+					<h:outputText value="#{tema.qtdSala}" />
+				</p:column>
+
+				<p:column headerText="Editar">
+
+					<h:commandLink action="#{temaChatBean.editar}">
+						<p:graphicImage library="imagens" name="editar16.png" style="border:0" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
+					</h:commandLink>
+				</p:column>
+
+				<p:column headerText="Excluir">
+					<h:commandLink action="#{temaChatBean.excluir}"
+						onclick="if (!confirm('Confirma a exclusão do tema #{tema.descricaoSala}?')) return false;">
+						<p:graphicImage library="imagens" name="excluir16.png"
+							style="border:0" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
+							value="#{tema}" />
+						<f:ajax execute="@form" render=":listagemTema" />
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
 	</ui:define>
 </ui:composition>
 </html>

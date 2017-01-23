@@ -23,7 +23,7 @@ public class UsuarioRN {
 			usuario.getPermissao().add("ROLE_USUARIO");
 			this.usuarioDAO.salvar(usuario);
 		} else {
-			// usuario.getPermissao();
+			 usuario.getPermissao();
 			this.usuarioDAO.atualizar(usuario);
 		}
 	}

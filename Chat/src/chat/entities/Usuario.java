@@ -25,7 +25,8 @@ public class Usuario implements Serializable {
 	private String login;
 	private String nome;
 	private String senha;
-
+	private String[] temaVinculadoUsuario;
+	
 	@ElementCollection(targetClass = String.class)
 	@JoinTable(name = "usuario_permissao", uniqueConstraints = {
 			@UniqueConstraint(columnNames = { "usuario", "permissao" }) }, joinColumns = @JoinColumn(name = "usuario") )
@@ -81,6 +82,16 @@ public class Usuario implements Serializable {
 
 	public void setPermissao(Set<String> permissao) {
 		this.permissao = permissao;
+	}
+
+
+	
+	public String[] getTemaVinculadoUsuario() {
+		return temaVinculadoUsuario;
+	}
+
+	public void setTemaVinculadoUsuario(String[] temaVinculadoUsuario) {
+		this.temaVinculadoUsuario = temaVinculadoUsuario;
 	}
 
 	@Override

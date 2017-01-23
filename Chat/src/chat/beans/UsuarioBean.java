@@ -17,6 +17,7 @@ public class UsuarioBean {
 	private String destinoSalvar;
 	private List<Usuario> lista;
 	
+	
 	public String salvar(){
 		FacesContext contex = FacesContext.getCurrentInstance();
 		String senha = this.usuario.getSenha();
@@ -89,5 +90,8 @@ public class UsuarioBean {
 	public void setDestinoSalvar(String destinoSalvar) {
 		this.destinoSalvar = destinoSalvar;
 	}	
+	
+
+
 
 }
