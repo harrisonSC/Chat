@@ -9,10 +9,73 @@
 
 <ui:composition template="/templates/interna.xhtml">
 	<ui:define name="titulo">
-	Cadastro Lista Negra
+	Inclusão Lista Negra
 	</ui:define>
 	<ui:define name="corpo">
-	Cadastro Lista Negra
+	Inclusão Lista Negra
+			<h:form id="edicaoLN">
+			<p:messages style="color:red;margin:8px;" />
+			<h:panelGrid columns="4">
+				<h:outputLabel value="Msisdn:" for="msisdn" />
+				<h:inputText id="msisdn" label="Msisdn"
+					value="#{listaNegraBean.listaNegra.msisdn}" size="11"
+					required="true">
+				</h:inputText>
+
+ <h:outputLabel  />
+				<p:selectCheckboxMenu id="escolhatemaLN"
+					value="#{usuarioBean.usuario.temaVinculadoUsuario}"
+					label="Vincular Tema" filter="true" filterMatchMode="startsWith"
+					panelStyle="width:250px">
+					<f:selectItems value="#{temaChatBean.listarItens}" />
+				</p:selectCheckboxMenu> 
+				
+
+				<h:commandButton action="#{listaNegraBean.salvar}" value="Salvar">
+					<f:ajax execute="@form" render=":edicaoLN :listagemLN" />
+				</h:commandButton>
+
+			</h:panelGrid>
+		</h:form>
+
+		<br />
+		<h:form id="listagemLN">
+
+			<p:dataTable value="#{listaNegraBean.lista}" var="listaNegra" width="750px"
+				rows="7" paginator="true">
+				<f:facet name="header">Listagem de Usuários na Lista Negra</f:facet>
+				<f:facet name="footer"></f:facet>
+
+				<p:column headerText="Numero">
+					<h:outputText value="#{listaNegra.msisdn}" />
+				</p:column>
+
+				<p:column headerText="Data Liberação">
+					<h:outputText value="#{listaNegra.validade}" />
+				</p:column>
+
+				<p:column headerText="Tema">
+					<h:outputText value="#{listaNegra.temas}" />
+				</p:column>
+
+				<p:column headerText="Excluir">
+					<h:commandLink action="#{listaNegraBean.excluir}"
+						onclick="if (!confirm('Confirma a exclusão do usuario #{listaNegra.msisdn}?')) return false;">
+						<p:graphicImage library="imagens" name="excluir16.png"
+							style="border:0" />
+						<f:setPropertyActionListener target="#{listaNegraBean.listaNegra}"
+							value="#{listaNegra}" />
+						<f:ajax execute="@form" render=":listagemLN" />
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
+
+
+
+
+		</h:form>
+
 	</ui:define>
 </ui:composition>
 </html>

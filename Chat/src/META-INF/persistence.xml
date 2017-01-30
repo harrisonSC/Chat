@@ -7,11 +7,12 @@
 		<!-- <non-jta-data-source>java:comp/env/jdbc/ChatDB</non-jta-data-source> -->
 		<class>chat.entities.Usuario</class>
 		<class>chat.entities.TemaChat</class>
+		<class>chat.entities.ListaNegra</class>		
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
   
 			<property name="hibernate.connection.driver_class" value="org.postgresql.Driver" />
-			<property name="hibernate.connection.url" value="jdbc:postgresql://192.168.3.121:5432/NEW_CHAT" />
+			<property name="hibernate.connection.url" value="jdbc:postgresql://192.168.3.121:5432/CHAT_UNIFICADO_NEW" />
 			<property name="hibernate.connection.password" value="postgres" />
 			<property name="hibernate.connection.username" value="postgres" />
 			

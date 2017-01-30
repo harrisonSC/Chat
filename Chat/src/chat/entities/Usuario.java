@@ -25,6 +25,7 @@ public class Usuario implements Serializable {
 	private String login;
 	private String nome;
 	private String senha;
+	@Column(name= "tema_vinculado_usuario")
 	private String[] temaVinculadoUsuario;
 	
 	@ElementCollection(targetClass = String.class)

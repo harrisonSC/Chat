@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context reloadable="true">
 
-<!-- 	<ResourceLink
+<!--	<ResourceLink
 	 name="jdbc/ChatDB"
 	 auth="Container"
 	 type="javax.sql.DataSource"
@@ -13,7 +13,7 @@
 	 driverClassName="org.postgresql.Driver"
 	 url="jdbc:postgresql://192.168.3.121:5432/NEW_CHAT"/> -->
 
- <ResourceLink name="jdbc/ChatDB"
+  <ResourceLink name="jdbc/ChatDB"
              global="jdbc/ChatDB"
               type="javax.sql.DataSource" />
 </Context> 
