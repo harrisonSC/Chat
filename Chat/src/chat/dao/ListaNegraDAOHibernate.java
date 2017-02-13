@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import chat.entities.ListaNegra;
+import chat.entities.TemaChat;
 
 public class ListaNegraDAOHibernate implements ListaNegraDAO{
 
@@ -26,14 +27,17 @@ public class ListaNegraDAOHibernate implements ListaNegraDAO{
 
 	@Override
 	public void excluir(ListaNegra listaNegra) {
-		// TODO Auto-generated method stub
+		this.entityManager.getTransaction().begin();
+		Object c = this.entityManager.merge(listaNegra);
+		this.entityManager.remove(c);
+		this.entityManager.getTransaction().commit();
+		this.entityManager.close();
 		
 	}
 
 	@Override
 	public List<ListaNegra> listar() {
-		// TODO Auto-generated method stub
-		return null;
+		return	this.entityManager.createNamedQuery(ListaNegra.BUSCAR_LN_POR_ORDEM_ID, ListaNegra.class).getResultList();
 	}
 
 }

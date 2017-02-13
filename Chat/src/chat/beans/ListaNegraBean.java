@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import chat.entities.ListaNegra;
 import chat.rn.ListaNegraRN;
 
-@ManagedBean(name = "listaNegraBean")
+@ManagedBean(name = "lnBean")
 @RequestScoped
 public class ListaNegraBean {
 

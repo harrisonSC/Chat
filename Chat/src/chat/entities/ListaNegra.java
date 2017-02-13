@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity(name = "lista_negra")
 @NamedQueries({
-		@NamedQuery(name = "lista_negra.findAll_orderMsisdn", query = "SELECT ln FROM lista_negra ln order by ln.msisdn")
+		@NamedQuery(name = "lista_negra.findAll_orderById", query = "SELECT ln FROM lista_negra ln order by ln.id")
 
 		// colocar outras querys
 
@@ -25,7 +25,7 @@ import javax.persistence.TemporalType;
 
 public class ListaNegra {
 
-	public static final String BUSCAR_LN_POR_ORDEM_ID = "lista_negra.findAll_orderMsisdn";
+	public static final String BUSCAR_LN_POR_ORDEM_ID = "lista_negra.findAll_orderById";
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;

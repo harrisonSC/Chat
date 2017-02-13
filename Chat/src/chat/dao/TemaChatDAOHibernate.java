@@ -6,7 +6,6 @@ import javax.persistence.EntityManager;
 
 import chat.entities.TemaChat;
 
-
 public class TemaChatDAOHibernate implements TemaChatDAO {
 
 	private EntityManager entityManager;
@@ -51,10 +50,6 @@ public class TemaChatDAOHibernate implements TemaChatDAO {
 	public List<TemaChat> listar() {
 		return	this.entityManager.createNamedQuery(TemaChat.BUSCAR_TEMA_POR_ORDEM_NOMINAL, TemaChat.class).getResultList();
 
-		
-		 
 	}
-
-
 
 }

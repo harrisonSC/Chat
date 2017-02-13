@@ -70,14 +70,6 @@ public class TemaChatBean {
 		}
 		return listarItens;
 		
-		//temas = new DualListModel<String>(listarItensAux, temasTarget);
-	}
-	
-/*	public DualListModel<String> getTemas() {
-		return temas;
 	}
 
-	public void setTemas(DualListModel<String> temas) {
-		this.temas = temas;
-	}*/
 }
