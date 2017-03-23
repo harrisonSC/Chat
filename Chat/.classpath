@@ -26,5 +26,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ManagerDialout1_4_0.jar"/>
 	<classpathentry kind="lib" path="C:/Users/harrison.cabral/Downloads/ari4java-0.3.3.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

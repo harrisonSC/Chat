@@ -22,7 +22,6 @@ public class ListaNegraDAOHibernate implements ListaNegraDAO{
 		this.entityManager.persist(listaNegra);
 		this.entityManager.getTransaction().commit();
 		this.entityManager.close();
-		
 	}
 
 	@Override

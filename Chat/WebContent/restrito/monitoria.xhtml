@@ -1,24 +1,66 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:c="http://java.sun.com/jsp/jstl/core"
-	template="/templates/interna.xhtml">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/interna.xhtml">
 	<ui:define name="titulo">
-		Monitoria
-		</ui:define>
+	Monitoria
+	</ui:define>
 	<ui:define name="corpo">
-		<h:form>
+		<h:form id="edicaoMonitoria">
+			<p:messages style="color:red;margin:8px;" />
+			Filtro por URA e Sala
+			<h:panelGrid columns="2">
 
-			<h3 style="margin-top: 0">Monitorar Salas e Canais</h3>
-			<p:pickList id="pickList" value="#{pickListBean.cities}" var="cities"
-				itemLabel="#{cities}" itemValue="#{cities}" />
+ 				<h:commandButton action="#" value="Filtrar">                               <!-- To do action -->
+					<f:ajax execute="@form" render=":edicaoMonitoria :listagemCanais" />
+				</h:commandButton>
+				
+			</h:panelGrid>
+		</h:form>
 
-			<p:commandButton id="citySubmit" value="Submit"	style="margin-top:5px" />
+		<br />
+		<h:form id="listagemCanais">
+
+			<p:dataTable value="#{temaChatBean.lista}" var="tema" width="750px"
+				rows="7" paginator="true">
+				<f:facet name="header">Listagem de Canais</f:facet>
+				<f:facet name="footer"></f:facet>
+
+				<p:column headerText="Id">
+					<h:outputText value="#{tema.descricaoSala}" />
+				</p:column>
+
+				<p:column headerText="Name">
+					<h:outputText value="#{tema.tamanhoSala}" />
+				</p:column>
+
+				<p:column headerText="State">
+					<h:outputText value="#{tema.qtdSala}" />
+				</p:column>
+				
+				<p:column headerText="Channel">
+					<h:outputText value="#{tema.qtdSala}" />
+				</p:column>
+				
+				<p:column headerText="Hangup">
+					<h:commandLink action="#{temaChatBean.excluir}"
+						onclick="if (!confirm('Confirma a exclusão do tema #{tema.descricaoSala}?')) return false;">
+						<p:graphicImage library="imagens" name="excluir16.png"
+							style="border:0" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
+							value="#{tema}" />
+						<f:ajax execute="@form" render=":listagemCanais" />
+					</h:commandLink>
+				</p:column>
+
+			</p:dataTable>
 		</h:form>
 	</ui:define>
 </ui:composition>
+</html>
