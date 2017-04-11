@@ -30,7 +30,7 @@
 				</p:selectCheckboxMenu>
 
 				<h:outputLabel value="Data de Liberação:" for="dtLiberacao" />
-				<p:calendar value="#{lnBean.listaNegra.validade}" pattern="MM/dd/yyyy" locale="pt"/>
+				<p:calendar value="#{lnBean.listaNegra.validade}" pattern="MM/dd/yyyy:hh:mm" locale="pt"/>
 				
 				<h:commandButton action="#{lnBean.salvar}" value="Salvar">
 					<f:ajax execute="@form" render=":edicaoLN :listagemLN" />

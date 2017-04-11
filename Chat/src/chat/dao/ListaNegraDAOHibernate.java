@@ -5,7 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 
 import chat.entities.ListaNegra;
-import chat.entities.TemaChat;
 
 public class ListaNegraDAOHibernate implements ListaNegraDAO{
 

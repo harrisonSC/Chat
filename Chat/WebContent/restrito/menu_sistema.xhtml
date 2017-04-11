@@ -17,11 +17,12 @@
 					<h:commandButton value="Temas" action="/restrito/cadastroTemas" />
 					<h:commandButton value="Entrar no Chat" action="/restrito/personalidade" />
 					<h:commandButton value="Lista Negra" action="/restrito/cadastroListaNegra" />
-					<h:commandButton value="Monitoria" action="/restrito/monitoria" />
 					<h:commandButton value="URAS" action="/restrito/cadastroUras" />
 				</sec:ifAnyGranted>
+				
 				<sec:ifNotGranted roles="ROLE_ADMINISTRADOR">	
-					<h:commandButton value="Monitores" action="/restrito/principal"/>
+					<h:commandButton value="Monitores" action="/restrito/monitoria" />
+					<h:commandButton value="Lista Negra" action="/restrito/cadastroListaNegra" />
 					<h:commandButton value="Entrar no Chat" action="/restrito/personalidade" />
 				</sec:ifNotGranted>
 				</td>

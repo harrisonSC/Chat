@@ -21,7 +21,16 @@ public class TemaChatBean {
 	private List<TemaChat> lista;
 	private List<SelectItem> listarItens;
  //   private DualListModel<String> temas;
-
+	private String displayName;
+	
+    public String getDisplayName() {
+        return displayName;
+    }
+ 
+    public void setDisplayName(String displayName) {
+        this.displayName = displayName;
+    }
+	
 	public String salvar() {
 		FacesContext contex = FacesContext.getCurrentInstance();
 		TemaChatRN TemaChatRN = new TemaChatRN();
