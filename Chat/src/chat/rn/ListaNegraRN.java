@@ -25,5 +25,9 @@ public class ListaNegraRN {
 	public void excluir(ListaNegra listaNegra) {
 		this.listaNegraDAO.excluir(listaNegra);
 	}
+	
+	public void fecharSessao(){
+		this.listaNegraDAO.fecharSessao();
+	}
 
 }

@@ -44,6 +44,8 @@ public class ListaNegraBean {
 		if (this.lista == null) {
 			ListaNegraRN listaNegraRN = new ListaNegraRN();
 			this.lista = listaNegraRN.listar();
+			//to do chamar metodo para fechar a sessao
+			//listaNegraRN.fecharSessao();
 		}
 		return lista;
 	}

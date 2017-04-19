@@ -16,20 +16,10 @@
 			<p:messages style="color:red;margin:8px;" />
 			Filtro por URA e Sala
 			<h:panelGrid columns="2">
-			
-			
 <!-- To do -->
-        <p:selectOneListbox id="salas" >
+         <p:selectOneListbox id="salas" >
              <f:selectItems value="#{temaChatBean.listarItens}" var="theme"  itemValue="#{theme}" />
- 
-          <!--  <p:column>
-                <h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
-            </p:column>
- 
-            <p:column>
-                <h:outputText value="#{t.displayName}" />
-            </p:column> -->
-        </p:selectOneListbox> 
+         </p:selectOneListbox> 
 
 				<h:commandButton action="#" value="Filtrar">
 					<!-- To do action -->
@@ -37,9 +27,7 @@
 				</h:commandButton>
 			</h:panelGrid>
 <!-- To do -->
-
 		</h:form>
-
 		<br />
 		<h:form id="listagemCanais">
 
@@ -52,11 +40,11 @@
 				<p:commandButton value="#{tema.descricaoSala}" type="button" onclick="PF('dlg2').show();" />
 				</p:column>
 
-				<p:column headerText="Usuários">
+				<p:column headerText="Usuários" style="text-align:center">
 					<h:outputText value="#{tema.tamanhoSala}" />
 				</p:column>
 
-				<p:column headerText="Limite">
+				<p:column headerText="Limite" style="text-align:center">
 					<h:outputText value="#{tema.qtdSala}" />
 				</p:column>
 
@@ -66,8 +54,7 @@
 		
 		<p:dialog header="Monitorar Usuários" widgetVar="dlg2" modal="true" height="250" width="740px">
 		<h:form id="listagemMsisdn">
-    		<p:dataTable value="#{temaChatBean.lista}" var="tema" 
-				rows="7" paginator="true">
+    		<p:dataTable value="#{temaChatBean.lista}" var="tema" rows="7" paginator="true">
 				<f:facet name="header">Listagem de Usuários</f:facet>
 				<f:facet name="footer"></f:facet>
 
@@ -75,48 +62,42 @@
 				<h:outputText value="123456789" />
 				</p:column>
 
-				<p:column headerText="Conversar">
+				<p:column headerText="Conversar" style="text-align:center">
 					<h:commandLink action="#{temaChatBean.excluir}">
 						<p:graphicImage library="imagens" name="talking.png"	style="border:0" />
-						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
-							value="#{tema}" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
 						<f:ajax execute="@form" render=":listagemMsisdn" />
 					</h:commandLink>
 				</p:column>
 
-				<p:column headerText="Ouvir">
+				<p:column headerText="Ouvir" style="text-align:center">
 					<h:commandLink action="#{temaChatBean.excluir}">
 						<p:graphicImage library="imagens" name="listening.png"	style="border:0" />
-						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
-							value="#{tema}" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
 						<f:ajax execute="@form" render=":listagemMsisdn" />
 					</h:commandLink>
 				</p:column>
 
-				<p:column headerText="Bloquear">
+				<p:column headerText="Bloquear" style="text-align:center">
 					<h:commandLink action="#{temaChatBean.excluir}">
 						<p:graphicImage library="imagens" name="locked.png"	style="border:0" />
-						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
-							value="#{tema}" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
 						<f:ajax execute="@form" render=":listagemMsisdn" />
 					</h:commandLink>
 				</p:column>
 				
-				<p:column headerText="Desbloquear">
-					<h:commandLink action="#{temaChatBean.excluir}">
+				<p:column headerText="Desbloquear" style="text-align:center">
+					<h:commandLink action="#{temaChatBean.excluir}" >
 						<p:graphicImage library="imagens" name="unlocked.png"	style="border:0" />
-						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
-							value="#{tema}" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
 						<f:ajax execute="@form" render=":listagemMsisdn" />
 					</h:commandLink>
 				</p:column>				
 
-				<p:column headerText="Desconectar">
-					<h:commandLink action="#{temaChatBean.excluir}"
-						onclick="if (!confirm('Confirma a exclusão do tema #{tema.descricaoSala}?')) return false;">
-						<p:graphicImage library="imagens" name="disconnected-phones.png"	style="border:0" />
-						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"
-							value="#{tema}" />
+				<p:column headerText="Desconectar" style="text-align:center">
+					<h:commandLink action="#{temaChatBean.excluir}" >
+						<p:graphicImage library="imagens" name="disconnected-phones.png" style="border:0" />
+						<f:setPropertyActionListener target="#{temaChatBean.temaChat}"	value="#{tema}" />
 						<f:ajax execute="@form" render=":listagemMsisdn" />
 					</h:commandLink>
 				</p:column>

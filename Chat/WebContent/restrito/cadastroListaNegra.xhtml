@@ -51,15 +51,15 @@
 					<h:outputText value="#{listaNegra.msisdn}" />
 				</p:column>
 
-				<p:column headerText="Data Liberação">
+				<p:column headerText="Data Liberação" style="text-align:center">
 					<h:outputText value="#{listaNegra.validade}" />
 				</p:column>
 
-				<p:column headerText="Tema">
+				<p:column headerText="Tema" style="text-align:center">
 					<h:outputText value="#{listaNegra.temas}" />
 				</p:column>
 
-				<p:column headerText="Excluir">
+				<p:column headerText="Excluir" style="text-align:center">
 					<h:commandLink action="#{lnBean.excluir}"
 						onclick="if (!confirm('Confirma a exclusão do usuario #{listaNegra.msisdn}?')) return false;">
 						<p:graphicImage library="imagens" name="excluir16.png"

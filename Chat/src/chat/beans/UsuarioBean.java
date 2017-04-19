@@ -1,5 +1,6 @@
 package chat.beans;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.faces.application.FacesMessage;
@@ -39,6 +40,20 @@ public class UsuarioBean {
 		this.confirmaSenha = this.usuario.getSenha();
 		return "/restrito/principal";
 	}
+
+	
+/*	public String atribuiPermissao(Usuario usuario, String permissao){
+		this.usuario = usuario;
+		java.util.Set<String> permissoes = this.usuario.getPermissao();
+		if (permissoes.contains(permissao)) {
+			permissoes.remove(permissao);
+		}else {
+			permissoes.add(permissao);
+		}
+		return null;
+	}	*/
+	
+	
 	
 	public String ativar(){
 		if (this.usuario.getAtivo()) 
@@ -92,6 +107,8 @@ public class UsuarioBean {
 	}	
 	
 
-
+	public void redirect() throws IOException {
+	    FacesContext.getCurrentInstance().getExternalContext().redirect("monitoria.jsf");
+	}
 
 }

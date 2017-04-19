@@ -17,8 +17,9 @@
 		</sec:ifNotGranted>		
 		
 	</ui:define>
+	
 	<ui:define name="corpo">
-		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR" >
 			<h:form id="ediccao">
 				<p:messages style="color:red;margin:8px;" />
 				<h:inputHidden value="#{usuarioBean.usuario.codigo}" />
@@ -34,8 +35,7 @@
 
 					<h:outputLabel value="Login:" for="login" />
 					<h:inputText id="login" label="Login"
-						value="#{usuarioBean.usuario.login}" size="10" maxlength="10"
-						required="true"	>
+						value="#{usuarioBean.usuario.login}" size="10" maxlength="10"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                required="true"	>
 					</h:inputText>
 
 					<h:outputLabel value="Senha:" for="senha" />
@@ -83,7 +83,7 @@
 						<h:outputText value="#{usuario.login}" />
 					</p:column>
 
-					<p:column headerText="Habilitar">
+					<p:column headerText="Habilitar" style="text-align:center">
 						<h:commandLink action="#{usuarioBean.ativar}">
 							<p:graphicImage library="imagens"
 								name="usuario_ativo_#{usuario.ativo}.png" style="border:0" />
@@ -92,7 +92,7 @@
 						</h:commandLink>
 					</p:column>
 
-					<p:column headerText="Editar">
+					<p:column headerText="Editar" style="text-align:center">
 					
 						<h:commandLink action="#{usuarioBean.editar}">
 							<p:graphicImage library="imagens" name="editar16.png" style="border:0" />
@@ -100,7 +100,27 @@
 						</h:commandLink>
 					</p:column>
 
-					<p:column headerText="Excluir">
+
+<!-- 			<p:column style="text-align:center">
+				<f:facet name="header">Permissões</f:facet>
+				<h:commandLink
+					action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_ADMINISTRADOR')}"
+					title="Permissão Administrador">
+					<h:graphicImage library="imagens"
+						name="ROLE_ADMINISTRADOR_#{usuario.permissao.contains('ROLE_ADMINISTRADOR')}.png"
+						style="border:0" />
+				</h:commandLink>
+				<h:commandLink
+					action="#{usuarioBean.atribuiPermissao(usuario, 'ROLE_USUARIO_VIP')}"
+					title="Permissão Usuário VIP">
+					<h:graphicImage library="imagens"
+						name="ROLE_USUARIO_VIP_#{usuario.permissao.contains('ROLE_USUARIO_VIP')}.png"
+						style="border:0" />
+				</h:commandLink>
+			</p:column> -->
+
+
+					<p:column headerText="Excluir" style="text-align:center">
 						<h:commandLink action="#{usuarioBean.excluir}"
 							onclick="if (!confirm('Confirma a exclusão do usuário #{usuario.nome}?')) return false;">
 							<p:graphicImage library="imagens" name="excluir16.png" style="border:0" />
@@ -111,9 +131,11 @@
 				</p:dataTable>
 			</h:form>
 		</sec:ifAnyGranted>
-		<sec:ifAnyGranted roles="ROLE_USUARIO">
-<!-- 		Ola Monitor : xpto -->
-		</sec:ifAnyGranted>
+		<sec:ifNotGranted roles="ROLE_ADMINISTRADOR">
+
+			<f:event type="preRenderView" listener="#{usuarioBean.redirect}" />
+
+		</sec:ifNotGranted>
 		
 	</ui:define>
 </ui:composition>

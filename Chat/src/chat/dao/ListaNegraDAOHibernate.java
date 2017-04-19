@@ -35,7 +35,14 @@ public class ListaNegraDAOHibernate implements ListaNegraDAO{
 
 	@Override
 	public List<ListaNegra> listar() {
-		return	this.entityManager.createNamedQuery(ListaNegra.BUSCAR_LN_POR_ORDEM_ID, ListaNegra.class).getResultList();
+		 List<ListaNegra> resultList = this.entityManager.createNamedQuery(ListaNegra.BUSCAR_LN_POR_ORDEM_ID, ListaNegra.class).getResultList();
+		 
+		return	resultList;
+		
+	}
+	
+	public void fecharSessao(){
+		this.entityManager.close();
 	}
 
 }

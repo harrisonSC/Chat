@@ -51,11 +51,11 @@
 					<h:outputText value="#{tema.descricaoSala}" />
 				</p:column>
 
-				<p:column headerText="Tamanho da Sala">
+				<p:column headerText="Tamanho da Sala" style="text-align:center">
 					<h:outputText value="#{tema.tamanhoSala}" />
 				</p:column>
 
-				<p:column headerText="Qtd Sala">
+				<p:column headerText="Qtd Sala" style="text-align:center">
 					<h:outputText value="#{tema.qtdSala}" />
 				</p:column>
 
@@ -67,7 +67,7 @@
 					</h:commandLink>
 				</p:column> -->
 
-				<p:column headerText="Excluir">
+				<p:column headerText="Excluir" style="text-align:center">
 					<h:commandLink action="#{temaChatBean.excluir}"
 						onclick="if (!confirm('Confirma a exclusão do tema #{tema.descricaoSala}?')) return false;">
 						<p:graphicImage library="imagens" name="excluir16.png"

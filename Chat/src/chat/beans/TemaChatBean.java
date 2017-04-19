@@ -71,8 +71,6 @@ public class TemaChatBean {
 
 		TemaChatRN TemaChatRN = new TemaChatRN();
 		ArrayList<SelectItem> temaChatAux = new ArrayList<SelectItem>();
-		//List<String> temasTarget = new ArrayList<String>();
-		//List<String> listarItensAux = new ArrayList<String>();
 		for (TemaChat temaChat : TemaChatRN.listar()) {
 			temaChatAux.add(new SelectItem(temaChat.getId(), temaChat.getDescricaoSala()));
 			this.listarItens = temaChatAux;
